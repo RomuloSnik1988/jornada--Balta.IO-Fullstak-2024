@@ -1,19 +1,24 @@
-﻿using Fina.Core.Enums;
 using System.ComponentModel.DataAnnotations;
+using Fina.Core.Enums;
 
 namespace Fina.Core.Requests.Transactions;
 
 public class UpdateTransactionRequest : Request
 {
     public long Id { get; set; }
-    [Required(ErrorMessage = "Titulo Invalido")]
+    
+    [Required(ErrorMessage = "Título inválido")]
     public string Title { get; set; } = string.Empty;
-    [Required(ErrorMessage = "Tipo Invalido")]
-    public ETransactionType Type { get; set; } = ETransactionType.Deposit;
-    [Required(ErrorMessage = "Valor Invalido")]
+
+    [Required(ErrorMessage = "Tipo inválido")]
+    public ETransactionType Type { get; set; }
+
+    [Required(ErrorMessage = "Valor inválido")]
     public decimal Amount { get; set; }
-    [Required(ErrorMessage = "Categoria Inválida")]
+
+    [Required(ErrorMessage = "Categoria inválida")]
     public long CategoryId { get; set; }
-    [Required(ErrorMessage = "Data Invalida")]
+
+    [Required(ErrorMessage = "Data inválida")]
     public DateTime? PaidOrReceivedAt { get; set; }
 }
